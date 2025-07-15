@@ -7,18 +7,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @SpringBootApplication
-@Slf4j
+
 public class U5D1Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(U5D1Application.class, args);
+		var context = SpringApplication.run(U5D1Application.class, args);
 
-		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(U5D1Application.class);
-
-		Menu m = (Menu) ctx.getBean("menu");
-
+		Menu m = context.getBean(Menu.class);
 		m.printMenu();
-		ctx.close();
-	}
 
+
+	}
 }
